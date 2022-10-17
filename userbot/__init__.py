@@ -75,9 +75,9 @@ logging.getLogger(
     "telethon.network.connection.connection").setLevel(logging.ERROR)
 LOGS = getLogger(__name__)
 
-CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
-
-if CONSOLE_LOGGER_VERBOSE:
+if CONSOLE_LOGGER_VERBOSE := sb(
+    os.environ.get("CONSOLE_LOGGER_VERBOSE", "False")
+):
     basicConfig(
         format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
         level=DEBUG,
@@ -92,12 +92,9 @@ if version_info[0] < 3 or version_info[1] < 8:
               "Multiple features depend on this. Bot quitting.")
     quit(1)
 
-# Check if the config was edited by using the already used variable.
-# Basically, its the 'virginity check' for the config file ;)
-CONFIG_CHECK = os.environ.get(
-    "___________PLOX_______REMOVE_____THIS_____LINE__________", None)
-
-if CONFIG_CHECK:
+if CONFIG_CHECK := os.environ.get(
+    "___________PLOX_______REMOVE_____THIS_____LINE__________", None
+):
     LOGS.info(
         "Please remove the line mentioned in the first hashtag from the config.env file"
     )
@@ -152,9 +149,7 @@ PMPERMIT_PIC = os.environ.get(
 # Bleep Blop, this is a bot ;)
 PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
 
-# Send .chatid in any group with all your administration bots (added)
-G_BAN_LOGGER_GROUP = os.environ.get("G_BAN_LOGGER_GROUP", "")
-if G_BAN_LOGGER_GROUP:
+if G_BAN_LOGGER_GROUP := os.environ.get("G_BAN_LOGGER_GROUP", ""):
     G_BAN_LOGGER_GROUP = int(G_BAN_LOGGER_GROUP)
 
 # Heroku Credentials for updater.
@@ -362,8 +357,7 @@ TEMP_DOWNLOAD_DIRECTORY = os.environ.get(
 # Google Photos
 G_PHOTOS_CLIENT_ID = os.environ.get("G_PHOTOS_CLIENT_ID", None)
 G_PHOTOS_CLIENT_SECRET = os.environ.get("G_PHOTOS_CLIENT_SECRET", None)
-G_PHOTOS_AUTH_TOKEN_ID = os.environ.get("G_PHOTOS_AUTH_TOKEN_ID", None)
-if G_PHOTOS_AUTH_TOKEN_ID:
+if G_PHOTOS_AUTH_TOKEN_ID := os.environ.get("G_PHOTOS_AUTH_TOKEN_ID", None):
     G_PHOTOS_AUTH_TOKEN_ID = int(G_PHOTOS_AUTH_TOKEN_ID)
 
 # Genius Lyrics  API
@@ -453,9 +447,9 @@ except Exception as e:
 
 
 async def checking():
-    gocheck = str("@ruangdiskusikami")
-    checker = str("@ruangprojects")
-    channel = str("@Ruang_Gabutku")
+    gocheck = "@ruangdiskusikami"
+    checker = "@ruangprojects"
+    channel = "@Ruang_Gabutku"
     try:
         await bot(GetSec(gocheck))
     except BaseException:
@@ -528,11 +522,11 @@ def paginate_help(page_number, loaded_modules, prefix):
     helpable_modules = sorted(helpable_modules)
     modules = [
         custom.Button.inline(
-            "{} {} {}".format(f"{EMOJI_HELP}", x, f"{EMOJI_HELP}"),
-            data="ub_modul_{}".format(x),
+            f"{EMOJI_HELP} {x} {EMOJI_HELP}", data=f"ub_modul_{x}"
         )
         for x in helpable_modules
     ]
+
     pairs = list(
         zip(
             modules[::number_of_cols],
@@ -545,20 +539,21 @@ def paginate_help(page_number, loaded_modules, prefix):
     modulo_page = page_number % max_num_pages
     if len(pairs) > number_of_rows:
         pairs = pairs[
-            modulo_page * number_of_rows: number_of_rows * (modulo_page + 1)
+            modulo_page * number_of_rows : number_of_rows * (modulo_page + 1)
         ] + [
             (
                 custom.Button.inline(
-                    "⪻", data="{}_prev({})".format(prefix, modulo_page)
+                    "⪻", data=f"{prefix}_prev({modulo_page})"
                 ),
                 custom.Button.inline(
-                    "🗑️ Close", data="{}_close({})".format(prefix, modulo_page)
+                    "🗑️ Close", data=f"{prefix}_close({modulo_page})"
                 ),
                 custom.Button.inline(
-                    "⪼", data="{}_next({})".format(prefix, modulo_page)
+                    "⪼", data=f"{prefix}_next({modulo_page})"
                 ),
             )
         ]
+
     return pairs
 
 
@@ -992,10 +987,9 @@ Voice chat group menu untuk [{user.first_name}](tg://user?id={user.id})
                 reply_pop_up_alert = (
                     help_string
                     if help_string is not None
-                    else "{} Tidak ada dokumen yang telah ditulis untuk modul.".format(
-                        modul_name
-                    )
+                    else f"{modul_name} Tidak ada dokumen yang telah ditulis untuk modul."
                 )
+
                 await event.edit(
                     reply_pop_up_alert, buttons=[
                         Button.inline("ʙᴀᴄᴋ", data="reopen")]

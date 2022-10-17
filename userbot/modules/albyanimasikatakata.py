@@ -389,7 +389,7 @@ async def typewriter(typew):
 @register(outgoing=True, pattern="^.g(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit(f"**JAKA SEMBUNG BAWA GOLOK**")
+    await typew.edit("**JAKA SEMBUNG BAWA GOLOK**")
     sleep(3)
     await typew.edit("**NIMBRUNG LAH GOBLOKK!!!**")
 
@@ -449,7 +449,7 @@ async def typewriter(typew):
 @register(outgoing=True, pattern="^.istighfar(?: |$)(.*)")
 async def perkenalan(event):
     event.pattern_match.group(1)
-    await event.edit(f"`Heh Kamu Gaboleh Begitu...`")
+    await event.edit("`Heh Kamu Gaboleh Begitu...`")
     sleep(2)
     await event.edit("`اَسْتَغْفِرُاللهَ الْعَظِيْم`")
 
@@ -502,9 +502,9 @@ async def typewriter(typew):
 @register(outgoing=True, pattern="^.nugas(?: |$)(.*)")
 async def perkenalan(event):
     event.pattern_match.group(1)
-    await event.edit(f"`Hai Kamu👋`")
+    await event.edit("`Hai Kamu👋`")
     sleep(2)
-    await event.edit(f"`iyaa kamuu, yang baca😁`")
+    await event.edit("`iyaa kamuu, yang baca😁`")
     sleep(1.5)
     await event.edit("`semangat ya nugasnya✊🏻`")
     sleep(2)
@@ -516,9 +516,9 @@ async def perkenalan(event):
 @register(outgoing=True, pattern="^.kerja(?: |$)(.*)")
 async def perkenalan(event):
     event.pattern_match.group(1)
-    await event.edit(f"`Hai Kamu👋`")
+    await event.edit("`Hai Kamu👋`")
     sleep(2)
-    await event.edit(f"`iyaa kamuu, yang baca😁`")
+    await event.edit("`iyaa kamuu, yang baca😁`")
     sleep(1.5)
     await event.edit("`semangat ya kerjanya✊🏻`")
     sleep(2)
@@ -531,9 +531,9 @@ async def perkenalan(event):
 @register(outgoing=True, pattern="^.prenjon(?: |$)(.*)")
 async def perkenalan(event):
     event.pattern_match.group(1)
-    await event.edit(f"`Hai you👋`")
+    await event.edit("`Hai you👋`")
     sleep(2)
-    await event.edit(f"`iyaa kamuu..`")
+    await event.edit("`iyaa kamuu..`")
     sleep(2)
     await event.edit("`Mau bilang sesuatu ni..`")
     sleep(2)
@@ -552,9 +552,9 @@ async def perkenalan(event):
 @register(outgoing=True, pattern="^.kangencerita(?: |$)(.*)")
 async def perkenalan(event):
     event.pattern_match.group(1)
-    await event.edit(f"`Hai kamu👋`")
+    await event.edit("`Hai kamu👋`")
     sleep(2)
-    await event.edit(f"`apa kabar?`")
+    await event.edit("`apa kabar?`")
     sleep(2)
     await event.edit("`makan nya udah?`")
     sleep(2)

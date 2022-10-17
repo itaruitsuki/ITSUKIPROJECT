@@ -15,10 +15,6 @@ async def _(event):
 
         return
 
-    animation_interval = 1
-
-    animation_ttl = range(0, 20)
-
     input_str = event.pattern_match.group(1)
 
     if input_str == "fadmin":
@@ -50,6 +46,10 @@ async def _(event):
 
         ]
 
+        animation_interval = 1
+
+        animation_ttl = range(20)
+
         for i in animation_ttl:
 
             await asyncio.sleep(animation_interval)
@@ -63,10 +63,6 @@ async def _(event):
     if event.fwd_from:
 
         return
-
-    animation_interval = 1
-
-    animation_ttl = range(0, 17)
 
     input_str = event.pattern_match.group(1)
 
@@ -93,6 +89,10 @@ async def _(event):
             "__Legend is leaving this chat.....! Bye geys..__"
 
         ]
+
+        animation_interval = 1
+
+        animation_ttl = range(17)
 
         for i in animation_ttl:
 

@@ -34,21 +34,18 @@ async def convert(event):
     else:
         end = datetime.now()
         ms = (end - start).seconds
-        await event.edit(
-            "Diunduh ke `{}` dalam {} detik.".format(downloaded_file_name, ms)
-        )
-        new_required_file_name = ""
+        await event.edit(f"Diunduh ke `{downloaded_file_name}` dalam {ms} detik.")
         new_required_file_caption = ""
         command_to_run = []
-        force_document = False
         voice_note = False
         supports_streaming = False
+        new_required_file_name = ""
         if input_str == "voice":
-            new_required_file_caption = "AUDIO" + \
-                str(round(time.time())) + ".opus"
+            new_required_file_caption = f"AUDIO{str(round(time.time()))}.opus"
             new_required_file_name = (
-                Config.TMP_DOWNLOAD_DIRECTORY + "/" + new_required_file_caption
+                f"{Config.TMP_DOWNLOAD_DIRECTORY}/{new_required_file_caption}"
             )
+
             command_to_run = [
                 "ffmpeg",
                 "-i",
@@ -66,11 +63,11 @@ async def convert(event):
             voice_note = True
             supports_streaming = True
         elif input_str == "mp3":
-            new_required_file_caption = "AUDIO" + \
-                str(round(time.time())) + ".mp3"
+            new_required_file_caption = f"AUDIO{str(round(time.time()))}.mp3"
             new_required_file_name = (
-                Config.TMP_DOWNLOAD_DIRECTORY + "/" + new_required_file_caption
+                f"{Config.TMP_DOWNLOAD_DIRECTORY}/{new_required_file_caption}"
             )
+
             command_to_run = [
                 "ffmpeg",
                 "-i",
@@ -99,6 +96,7 @@ async def convert(event):
         os.remove(downloaded_file_name)
         if os.path.exists(new_required_file_name):
             end_two = datetime.now()
+            force_document = False
             await borg.send_file(
                 entity=event.chat_id,
                 file=new_required_file_name,

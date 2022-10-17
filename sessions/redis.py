@@ -57,7 +57,7 @@ class RedisSession(MemorySession):
         self.session_name = (session_name if isinstance(session_name, str) else
                              session_name.decode())
         self.redis_connection = redis_connection
-        self.sess_prefix = "telethon:session:{}".format(self.session_name)
+        self.sess_prefix = f"telethon:session:{self.session_name}"
         self.feed_session()
 
         self._files = {}
@@ -87,9 +87,9 @@ class RedisSession(MemorySession):
             LOGGER.exception(ex.args)
 
     def _get_sessions(self, strip_prefix=False):
-        key_pattern = "{}:auth".format(self.sess_prefix)
+        key_pattern = f"{self.sess_prefix}:auth"
         try:
-            sessions = self.redis_connection.keys(key_pattern + '*')
+            sessions = self.redis_connection.keys(f'{key_pattern}*')
             return [
                 s.decode().replace(key_pattern, '')
                 if strip_prefix else s.decode() for s in sessions
@@ -111,7 +111,7 @@ class RedisSession(MemorySession):
             'takeout_id': self.takeout_id or b''
         }
 
-        key = "{}:auth".format(self.sess_prefix)
+        key = f"{self.sess_prefix}:auth"
         try:
             self.redis_connection.hmset(key, s)
         except Exception as ex:
@@ -127,9 +127,8 @@ class RedisSession(MemorySession):
             self._auth_key = AuthKey(data=auth_key)
             return
 
-        key_pattern = "{}:auth".format(self.sess_prefix)
-        s = self.redis_connection.hgetall(key_pattern)
-        if s:
+        key_pattern = f"{self.sess_prefix}:auth"
+        if s := self.redis_connection.hgetall(key_pattern):
             auth_key = s.get(b'auth_key') or auth_key
             self._auth_key = AuthKey(s.get(auth_key))
 
@@ -156,20 +155,23 @@ class RedisSession(MemorySession):
         self.redis_connection.delete(*keys)
 
     def get_update_state(self, entity_id):
-        key_pattern = "{}:update_states:{}".format(self.sess_prefix, entity_id)
+        key_pattern = f"{self.sess_prefix}:update_states:{entity_id}"
         return self.redis_connection.get(key_pattern)
 
     def set_update_state(self, entity_id, state):
-        key_pattern = "{}:update_states:{}".format(self.sess_prefix, entity_id)
+        key_pattern = f"{self.sess_prefix}:update_states:{entity_id}"
         self.redis_connection.set(key_pattern, state)
 
     def _get_entities(self, strip_prefix=False):
-        key_pattern = "{}:entities:".format(self.sess_prefix)
+        key_pattern = f"{self.sess_prefix}:entities:"
         try:
-            entities = self.redis_connection.keys(key_pattern + "*")
-            if not strip_prefix:
-                return entities
-            return [s.decode().replace(key_pattern, "") for s in entities]
+            entities = self.redis_connection.keys(f"{key_pattern}*")
+            return (
+                [s.decode().replace(key_pattern, "") for s in entities]
+                if strip_prefix
+                else entities
+            )
+
         except Exception as ex:
             LOGGER.exception(ex.args)
             return []
@@ -181,7 +183,7 @@ class RedisSession(MemorySession):
 
         try:
             for row in rows:
-                key = "{}:entities:{}".format(self.sess_prefix, row[0])
+                key = f"{self.sess_prefix}:entities:{row[0]}"
                 s = {
                     "id": row[0],
                     "hash": row[1],
@@ -249,7 +251,7 @@ class RedisSession(MemorySession):
 
     def get_entity_rows_by_id(self, id, exact=True):
         if exact:
-            key = "{}:entities:{}".format(self.sess_prefix, id)
+            key = f"{self.sess_prefix}:entities:{id}"
             s = self.redis_connection.hgetall(key)
             if not s:
                 return None
@@ -275,9 +277,9 @@ class RedisSession(MemorySession):
 
     def cache_file(self, md5_digest, file_size, instance):
         if not isinstance(instance, (types.InputDocument, types.InputPhoto)):
-            raise TypeError('Cannot cache %s instance' % type(instance))
+            raise TypeError(f'Cannot cache {type(instance)} instance')
 
-        key = "{}:sent_files:{}".format(self.sess_prefix, md5_digest)
+        key = f"{self.sess_prefix}:sent_files:{md5_digest}"
         s = {
             'md5_digest': md5_digest,
             'file_size': file_size,
@@ -291,9 +293,8 @@ class RedisSession(MemorySession):
             LOGGER.exception(ex.args)
 
     def get_file(self, md5_digest, file_size, cls):
-        key = "{}:sent_files:{}".format(self.sess_prefix, md5_digest)
-        s = self.redis_connection.hgetall(key)
-        if s:
+        key = f"{self.sess_prefix}:sent_files:{md5_digest}"
+        if s := self.redis_connection.hgetall(key):
             try:
                 if (
                     s.get(b'md5_digest').decode() == md5_digest and

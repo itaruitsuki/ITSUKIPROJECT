@@ -213,9 +213,9 @@ async def original(event):
     dc = random.randrange(1, 3)
     if dc == 1:
         piki = "AIzaSyAyDBsY3WRtB5YPC6aB_w8JAy6ZdXNc6FU"
-    if dc == 2:
+    elif dc == 2:
         piki = "AIzaSyBF0zxLlYlPMp9xwMQqVKCQRq8DgdrLXsg"
-    if dc == 3:
+    elif dc == 3:
         piki = "AIzaSyDdOKnwnPwVIQ_lbH5sYE4FoXjAKIQV0DQ"
     extract_lyrics = sl(f"{piki}", "15b9fb6193efd5d90")
     sh1vm = extract_lyrics.get_lyrics(f"{geez}")

@@ -61,10 +61,6 @@ async def _(event):
 
         return
 
-    animation_interval = 3
-
-    animation_ttl = range(0, 103)
-
     input_str = event.pattern_match.group(1)
 
     if input_str == "ceritacinta":
@@ -86,6 +82,10 @@ async def _(event):
             "😖 \n/\\_,💦_😋  \n  //         //        \\",
             "  😭      ☺️ \n  /|\\   /(👶)\\ \n  /!\\   / \\ ",
             "`TAMAT 😅`"]
+
+        animation_interval = 3
+
+        animation_ttl = range(103)
 
         for i in animation_ttl:
 
@@ -159,7 +159,7 @@ async def iqless(e):
 async def moon(event):
     deq = deque(list("🌗🌘🌑🌒🌓🌔🌕🌖"))
     try:
-        for x in range(32):
+        for _ in range(32):
             await sleep(0.1)
             await event.edit("".join(deq))
             deq.rotate(1)
@@ -182,10 +182,6 @@ async def _(event):
     if event.fwd_from:
 
         return
-
-    animation_interval = 0.1
-
-    animation_ttl = range(117)
 
     input_str = event.pattern_match.group(1)
 
@@ -225,7 +221,13 @@ async def _(event):
             "🌓",
             "🌔",
             "🌕",
-            f"🌖"]
+            "🌖",
+        ]
+
+
+        animation_interval = 0.1
+
+        animation_ttl = range(117)
 
         for i in animation_ttl:
 
@@ -238,7 +240,7 @@ async def _(event):
 async def moon(event):
     deq = deque(list("🌼🌻🌺🌹🌸🌷"))
     try:
-        for x in range(35):
+        for _ in range(35):
             await sleep(0.1)
             await event.edit("".join(deq))
             deq.rotate(1)
@@ -250,7 +252,7 @@ async def moon(event):
 async def moon(event):
     deq = deque(list("🎑🌄🌅🌇🌆🌃🌌"))
     try:
-        for x in range(100):
+        for _ in range(100):
             await sleep(0.1)
             await event.edit("".join(deq))
             deq.rotate(1)
@@ -262,7 +264,7 @@ async def moon(event):
 async def moon(event):
     deq = deque(list("🍉🍓🍇🍎🍍🍐🍌"))
     try:
-        for x in range(35):
+        for _ in range(35):
             await sleep(0.1)
             await event.edit("".join(deq))
             deq.rotate(1)
@@ -274,7 +276,7 @@ async def moon(event):
 async def clock(event):
     deq = deque(list("🕙🕘🕗🕖🕕🕔🕓🕒🕑🕐🕛"))
     try:
-        for x in range(32):
+        for _ in range(32):
             await sleep(0.1)
             await event.edit("".join(deq))
             deq.rotate(1)
@@ -286,7 +288,7 @@ async def clock(event):
 async def rain(event):
     deq = deque(list("☀️🌤⛅️🌥☁️🌧⛈"))
     try:
-        for x in range(32):
+        for _ in range(32):
             await sleep(0.1)
             await event.edit("".join(deq))
             deq.rotate(1)
@@ -298,7 +300,7 @@ async def rain(event):
 async def love(event):
     deq = deque(list("❤️🧡💛💚💙💜🖤💕💞💓💗💖💘💝"))
     try:
-        for x in range(32):
+        for _ in range(32):
             await sleep(0.1)
             await event.edit("".join(deq))
             deq.rotate(1)
@@ -310,7 +312,7 @@ async def love(event):
 async def earth(event):
     deq = deque(list("🌏🌍🌎🌎🌍🌏🌍🌎"))
     try:
-        for x in range(32):
+        for _ in range(32):
             await sleep(0.1)
             await event.edit("".join(deq))
             deq.rotate(1)
@@ -322,7 +324,7 @@ async def earth(event):
 async def earth(event):
     deq = deque(list("🖤💜💙💚💛🧡❤️🤍"))
     try:
-        for x in range(32):
+        for _ in range(32):
             await sleep(0.1)
             await event.edit("".join(deq))
             deq.rotate(1)
@@ -334,7 +336,7 @@ async def earth(event):
 async def earth(event):
     deq = deque(list("🙈🙉🙈🙉🙈🙉🙈🙉"))
     try:
-        for x in range(32):
+        for _ in range(32):
             await sleep(0.1)
             await event.edit("".join(deq))
             deq.rotate(1)
@@ -346,7 +348,7 @@ async def earth(event):
 async def earth(event):
     deq = deque(list("🙂😁😄😃😂🤣😭🐵🙊🙉🙈"))
     try:
-        for x in range(32):
+        for _ in range(32):
             await sleep(0.1)
             await event.edit("".join(deq))
             deq.rotate(1)
@@ -993,10 +995,6 @@ async def _(event):
 
         return
 
-    animation_interval = 2
-
-    animation_ttl = range(0, 11)
-
     input_str = event.pattern_match.group(1)
 
     if input_str == "cinta":
@@ -1014,7 +1012,13 @@ async def _(event):
             "`Mengirim Cintaku.. 52%\n█████████████▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Mengirim Cintaku.. 84%\n█████████████████████▒▒▒▒ `",
             "`Mengirim Cintaku.. 100%\n█████████CINTAKU███████████ `",
-            f"`Cintaku Sekarang Sepenuhnya Terkirim Padamu, Dan Sekarang Aku Sangat Mencintai Mu, I Love You 💞`"]
+            "`Cintaku Sekarang Sepenuhnya Terkirim Padamu, Dan Sekarang Aku Sangat Mencintai Mu, I Love You 💞`",
+        ]
+
+
+        animation_interval = 2
+
+        animation_ttl = range(11)
 
         for i in animation_ttl:
 
@@ -1110,10 +1114,6 @@ async def _(event):
 
         return
 
-    animation_interval = 9
-
-    animation_ttl = range(0, 15)
-
     input_str = event.pattern_match.group(1)
 
     if input_str == "wupload":
@@ -1136,6 +1136,10 @@ async def _(event):
             "UPLOADING TO ADMIN'S WHATSAPP GROUP [CHUTIYA GANG BOYS]... 100% [████████████████████]\n`Scanning file...`\nETA: 0m, 00s",
             "UPLOADING FILE TO WHATSAPP GROUP COMPLETED!\nFILE VERIFIED: ✅",
             "API TERMINATED UNTIL FURTHER USAGE..."]
+
+        animation_interval = 9
+
+        animation_ttl = range(15)
 
         for i in animation_ttl:
 
@@ -1177,10 +1181,6 @@ async def _(event):
 
         return
 
-    animation_interval = 0.5
-
-    animation_ttl = range(0, 17)
-
     input_str = event.pattern_match.group(1)
 
     if input_str == "hadiah":
@@ -1206,6 +1206,10 @@ async def _(event):
             "⬜⬜\n⬜⬜",
             "[🎁](https://gifft.me/id/b#Y3A2pY80Bk09qUOi7ToH)"]
 
+        animation_interval = 0.5
+
+        animation_ttl = range(17)
+
         for i in animation_ttl:
 
             await asyncio.sleep(animation_interval)
@@ -1218,10 +1222,6 @@ async def _(event):
     if event.fwd_from:
 
         return
-
-    animation_interval = 0.3
-
-    animation_ttl = range(0, 12)
 
     input_str = event.pattern_match.group(1)
 
@@ -1246,6 +1246,10 @@ async def _(event):
 
         ]
 
+        animation_interval = 0.3
+
+        animation_ttl = range(12)
+
         for i in animation_ttl:
 
             await asyncio.sleep(animation_interval)
@@ -1258,8 +1262,6 @@ async def _(event):
     if event.fwd_from:
 
         return
-
-    animation_ttl = range(0, 103)
 
     input_str = event.pattern_match.group(1)
 
@@ -1283,6 +1285,8 @@ async def _(event):
             "**Mati aja kau PERSETAN 😵😵**",
         ]
 
+        animation_ttl = range(103)
+
         for i in animation_ttl:
 
             await event.edit(animation_chars[i % 103])
@@ -1293,10 +1297,6 @@ async def _(event):
     if event.fwd_from:
 
         return
-
-    animation_interval = 0.5
-
-    animation_ttl = range(0, 11)
 
     input_str = event.pattern_match.group(1)
 
@@ -1319,6 +1319,10 @@ async def _(event):
             "`Welcome...\n\nStock OS: Symbian OS\nCurrent OS: Hackintosh`\n\n**Spesifikasi PC Saya:**\n\n **CPU:** __2.9GHz Intel Core i9-8950HK (hexa-core, 12MB cache, up to 4.8GHz)__\n\n**Graphics:** __Nvidia GeForce GTX 1080 OC (8GB GDDR5X)__\n\n**RAM:** __32GB DDR4 (2,666MHz)__\n\n**Screen:** __17.3-inch, QHD (2,560 x 1,440) 120Hz G-Sync__\n\n**Storage:** __512GB PCIe SSD, 1TB HDD (7,200 rpm)__\n\n**Ports:** __2 x USB 3.0, 1 x USB-C 3.0, 1 x USB-C (Thunderbolt 3), HDMI, mini DisplayPort, Ethernet, headphone jack, microphone jack__\n\n**Connectivity:** __Killer 1550 802.11ac Wi-Fi, Bluetooth 5.0__\n\n**Camera:** __Alienware FHD camera, Tobii IR Eye-tracking with Windows Hello__\n\n**Size:** __16.7 x 13.1 x 1.18 inches (42.4 x 33.2 x 2.99cm; W x D x H)__"
         ]
 
+        animation_interval = 0.5
+
+        animation_ttl = range(11)
+
         for i in animation_ttl:
 
             await asyncio.sleep(animation_interval)
@@ -1332,10 +1336,6 @@ async def _(event):
     if event.fwd_from:
 
         return
-
-    animation_interval = 0.5
-
-    animation_ttl = range(0, 11)
 
     input_str = event.pattern_match.group(1)
 
@@ -1358,6 +1358,10 @@ async def _(event):
             "`Welcome...\n\nStock OS: Symbian OS\nCurrent OS: Windows 10`\n\n**Spesifikasi PC Saya:**\n\n **CPU:** __2.9GHz Intel Core i9-8950HK (hexa-core, 12MB cache, up to 4.8GHz)__\n\n**Graphics:** __Nvidia GeForce GTX 1080 OC (8GB GDDR5X)__\n\n**RAM:** __32GB DDR4 (2,666MHz)__\n\n**Screen:** __17.3-inch, QHD (2,560 x 1,440) 120Hz G-Sync__\n\n**Storage:** __512GB PCIe SSD, 1TB HDD (7,200 rpm)__\n\n**Ports:** __2 x USB 3.0, 1 x USB-C 3.0, 1 x USB-C (Thunderbolt 3), HDMI, mini DisplayPort, Ethernet, headphone jack, microphone jack__\n\n**Connectivity:** __Killer 1550 802.11ac Wi-Fi, Bluetooth 5.0__\n\n**Camera:** __Alienware FHD camera, Tobii IR Eye-tracking with Windows Hello__\n\n**Size:** __16.7 x 13.1 x 1.18 inches (42.4 x 33.2 x 2.99cm; W x D x H)__"
         ]
 
+        animation_interval = 0.5
+
+        animation_ttl = range(11)
+
         for i in animation_ttl:
 
             await asyncio.sleep(animation_interval)
@@ -1371,10 +1375,6 @@ async def _(event):
     if event.fwd_from:
 
         return
-
-    animation_interval = 0.5
-
-    animation_ttl = range(0, 11)
 
     input_str = event.pattern_match.group(1)
 
@@ -1397,6 +1397,10 @@ async def _(event):
             "`Welcome...\n\nStock OS: Symbian OS\nCurrent OS: Linux`\n\n**Spesifikasi PC Saya:**\n\n **CPU:** __2.9GHz Intel Core i9-8950HK (hexa-core, 12MB cache, up to 4.8GHz)__\n\n**Graphics:** __Nvidia GeForce GTX 1080 OC (8GB GDDR5X)__\n\n**RAM:** __32GB DDR4 (2,666MHz)__\n\n**Screen:** __17.3-inch, QHD (2,560 x 1,440) 120Hz G-Sync__\n\n**Storage:** __512GB PCIe SSD, 1TB HDD (7,200 rpm)__\n\n**Ports:** __2 x USB 3.0, 1 x USB-C 3.0, 1 x USB-C (Thunderbolt 3), HDMI, mini DisplayPort, Ethernet, headphone jack, microphone jack__\n\n**Connectivity:** __Killer 1550 802.11ac Wi-Fi, Bluetooth 5.0__\n\n**Camera:** __Alienware FHD camera, Tobii IR Eye-tracking with Windows Hello__\n\n**Size:** __16.7 x 13.1 x 1.18 inches (42.4 x 33.2 x 2.99cm; W x D x H)__"
         ]
 
+        animation_interval = 0.5
+
+        animation_ttl = range(11)
+
         for i in animation_ttl:
 
             await asyncio.sleep(animation_interval)
@@ -1410,10 +1414,6 @@ async def _(event):
     if event.fwd_from:
 
         return
-
-    animation_interval = 0.5
-
-    animation_ttl = range(0, 11)
 
     input_str = event.pattern_match.group(1)
 
@@ -1436,6 +1436,10 @@ async def _(event):
             "`Welcome...\n\nStock OS: Symbian OS\nCurrent OS: Symbian OS`\n\n**Spesifikasi PC Saya:**\n\n **CPU:** __2.9GHz Intel Core i9-8950HK (hexa-core, 12MB cache, up to 4.8GHz)__\n\n**Graphics:** __Nvidia GeForce GTX 1080 OC (8GB GDDR5X)__\n\n**RAM:** __32GB DDR4 (2,666MHz)__\n\n**Screen:** __17.3-inch, QHD (2,560 x 1,440) 120Hz G-Sync__\n\n**Storage:** __512GB PCIe SSD, 1TB HDD (7,200 rpm)__\n\n**Ports:** __2 x USB 3.0, 1 x USB-C 3.0, 1 x USB-C (Thunderbolt 3), HDMI, mini DisplayPort, Ethernet, headphone jack, microphone jack__\n\n**Connectivity:** __Killer 1550 802.11ac Wi-Fi, Bluetooth 5.0__\n\n**Camera:** __Alienware FHD camera, Tobii IR Eye-tracking with Windows Hello__\n\n**Size:** __16.7 x 13.1 x 1.18 inches (42.4 x 33.2 x 2.99cm; W x D x H)__"
         ]
 
+        animation_interval = 0.5
+
+        animation_ttl = range(11)
+
         for i in animation_ttl:
 
             await asyncio.sleep(animation_interval)
@@ -1449,10 +1453,6 @@ async def _(event):
     if event.fwd_from:
 
         return
-
-    animation_interval = 0.1
-
-    animation_ttl = range(0, 7)
 
     input_str = event.pattern_match.group(1)
 
@@ -1469,6 +1469,10 @@ async def _(event):
             "__Current Loaded OS: CrDroid OS__\n\n**To Boot Other OS, Use The Following Trigger:**\n✅ `.Macos`\n✅ `.Windows`\n✅ `.Linux`\n☑️ `.Stock`",
             "__Current Loaded OS: CrDroid OS__\n\n**To Boot Other OS, Use The Following Trigger:**\n✅ `.Macos`\n✅ `.Windows`\n✅ `.Linux`\n✅ `.Stock`\n\n by @heyworld and others"]
 
+        animation_interval = 0.1
+
+        animation_ttl = range(7)
+
         for i in animation_ttl:
 
             await asyncio.sleep(animation_interval)
@@ -1482,10 +1486,6 @@ async def _(event):
     if event.fwd_from:
 
         return
-
-    animation_interval = 1
-
-    animation_ttl = range(0, 24)
 
     input_str = event.pattern_match.group(1)
 
@@ -1522,6 +1522,10 @@ async def _(event):
 
         ]
 
+        animation_interval = 1
+
+        animation_ttl = range(24)
+
         for i in animation_ttl:
 
             await asyncio.sleep(animation_interval)
@@ -1535,10 +1539,6 @@ async def _(event):
     if event.fwd_from:
 
         return
-
-    animation_interval = 2
-
-    animation_ttl = range(0, 11)
 
     input_str = event.pattern_match.group(1)
 
@@ -1559,6 +1559,10 @@ async def _(event):
             "`Hacking... 100%\n█████████HACKED███████████ `",
             f"`Akun Target Diretas...\n\nBayar uang sebesar 1000$ terlebih dahulu Ke @{DEFAULTUSER} atau belikan mobil aja Untuk Menghapus Peretasan Ini`"]
 
+        animation_interval = 2
+
+        animation_ttl = range(11)
+
         for i in animation_ttl:
 
             await asyncio.sleep(animation_interval)
@@ -1572,10 +1576,6 @@ async def _(event):
     if event.fwd_from:
 
         return
-
-    animation_interval = 2
-
-    animation_ttl = range(0, 11)
 
     input_str = event.pattern_match.group(1)
 
@@ -1596,6 +1596,10 @@ async def _(event):
             "`Hacking... 100%\n█████████HACKED███████████ `",
             f"`Akun Target Diretas...\n\nBayar uang sebesar 9999$ terlebih dahulu Ke @{DEFAULTUSER} atau belikan pizza 🍕 aja Untuk Menghapus Peretasan Ini`"]
 
+        animation_interval = 2
+
+        animation_ttl = range(11)
+
         for i in animation_ttl:
 
             await asyncio.sleep(animation_interval)
@@ -1609,10 +1613,6 @@ async def _(event):
     if event.fwd_from:
 
         return
-
-    animation_interval = 0.3
-
-    animation_ttl = range(0, 15)
 
     input_str = event.pattern_match.group(1)
 
@@ -1637,6 +1637,10 @@ async def _(event):
             "⬜⬜⬜\n⬜⬛⬜\n⬜⬜⬜",
             "[👉🔴👈](t.me/ruangdiskusikami)"]
 
+        animation_interval = 0.3
+
+        animation_ttl = range(15)
+
         for i in animation_ttl:
 
             await asyncio.sleep(animation_interval)
@@ -1650,10 +1654,6 @@ async def _(event):
     if event.fwd_from:
 
         return
-
-    animation_interval = 2
-
-    animation_ttl = range(0, 15)
 
     input_str = event.pattern_match.group(1)
 
@@ -1678,6 +1678,10 @@ async def _(event):
             "Hacking complete!\nUploading file...",
             "Akun Target Diretas...!\n\n ✅ File telah berhasil diunggah ke server saya.\nWhatsApp Database:\n`./DOWNLOADS/msgstore.db.crypt12`"]
 
+        animation_interval = 2
+
+        animation_ttl = range(15)
+
         for i in animation_ttl:
 
             await asyncio.sleep(animation_interval)
@@ -1690,10 +1694,6 @@ async def _(event):
     if event.fwd_from:
 
         return
-
-    animation_interval = 0.3
-
-    animation_ttl = range(0, 27)
 
     input_str = event.pattern_match.group(1)
 
@@ -1757,6 +1757,10 @@ async def _(event):
 
             "◻️◻️◻️◻️◻️\n◻️◼️◻️◼️◻️\n◻️◻️◻️◻️◻️\n◻️◼️◼️◼️◻️\n◻️◻️◻️◻️◻️"
         ]
+
+        animation_interval = 0.3
+
+        animation_ttl = range(27)
 
         for i in animation_ttl:
 
@@ -1851,8 +1855,6 @@ async def koc(e):
 async def _(event):
     if event.fwd_from:
         return
-    animation_interval = 0.1
-    animation_ttl = range(0, 549755813888)
     input_str = event.pattern_match.group(1)
     if input_str == "solar":
         await event.edit(input_str)
@@ -2003,6 +2005,8 @@ async def _(event):
             "`◼️◼️◼️☀◼️\n◼️◼️◼️◼️◼️\n◼️◼️🌎◼️◼️\n◼️◼️◼️◼️◼️\n◼️🌕◼️◼️◼️`",
         ]
 
+        animation_interval = 0.1
+        animation_ttl = range(549755813888)
         for i in animation_ttl:
             await asyncio.sleep(animation_interval)
             await event.edit(animation_chars[i % 549755813888])
@@ -2011,8 +2015,6 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-    animation_interval = 0.1
-    animation_ttl = range(0, 549755813888)
     input_str = event.pattern_match.group(1)
     if input_str == "human":
         await event.edit(input_str)
@@ -2034,6 +2036,8 @@ async def _(event):
             "⬛⬛⬛⬛⬛⬛⬛\n⬛⬛⬛😊⬛⬛⬛\n⬛⬛⬜⬜⬜⬛⬛\n⬛⬜⬛⬜⬛⬜⬛\n⬛⬛⬜⬛⬜⬛⬛\n⬛⬛⬜⬛⬜⬛⬛\n⬛⬛⬜⬛⬜⬛⬛\n🔲🔲🔲🔲🔲🔲🔲",
             "⬛⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛⬛\n⬜⬜⬜😊⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n🔲🔲🔲🔲🔲🔲🔲"]
 
+        animation_interval = 0.1
+        animation_ttl = range(549755813888)
         for i in animation_ttl:
             await asyncio.sleep(animation_interval)
             await event.edit(animation_chars[i % 549755813888])
@@ -2043,7 +2047,7 @@ async def _(event):
     if event.fwd_from:
         return
     animation_interval = 0.1
-    animation_ttl = range(0, 549755813888)
+    animation_ttl = range(549755813888)
     input_str = event.pattern_match.group(1)
     if input_str == "albyuserbot":
         await event.edit(input_str)
@@ -2086,7 +2090,7 @@ async def _(event):
     if event.fwd_from:
         return
     animation_interval = 0.1
-    animation_ttl = range(0, 549755813888)
+    animation_ttl = range(549755813888)
     input_str = event.pattern_match.group(1)
     if input_str == "kereta":
         await event.edit(input_str)

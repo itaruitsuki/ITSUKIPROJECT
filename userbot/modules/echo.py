@@ -72,8 +72,7 @@ async def echo(event):
 
 @register(outgoing=True, pattern=r"^.delecho(?: |$)(.*)")
 async def echo(event):
-    input_str = event.pattern_match.group(1)
-    if input_str:
+    if input_str := event.pattern_match.group(1):
         lecho = get_all_echos()
         if len(lecho) == 0:
             await event.edit(
@@ -103,28 +102,26 @@ async def echo(event):
 @register(outgoing=True, pattern=r"^.echolist(?: |$)(.*)")
 async def echo(event):  # sourcery no-metrics
     input_str = event.pattern_match.group(1)
-    private_chats = ""
     output_str = "**Pengguna yang mengaktifkan Echo:**\n\n"
+    private_chats = ""
     if input_str:
         lsts = get_all_echos()
         group_chats = ""
-        if len(lsts) > 0:
-            for echos in lsts:
-                if echos.chat_type == "Personal":
-                    if echos.user_username:
-                        private_chats += f"☞ [{echos.user_name}](https://t.me/{echos.user_username})\n"
-                    else:
-                        private_chats += (
-                            f"☞ [{echos.user_name}](tg://user?id={echos.user_id})\n"
-                        )
-                else:
-                    if echos.user_username:
-                        group_chats += f"☞ [{echos.user_name}](https://t.me/{echos.user_username}) in chat {echos.chat_name} of chat id `{echos.chat_id}`\n"
-                    else:
-                        group_chats += f"☞ [{echos.user_name}](tg://user?id={echos.user_id}) in chat {echos.chat_name} of chat id `{echos.chat_id}`\n"
-
-        else:
+        if len(lsts) <= 0:
             return await event.edit("Tidak ada pengguna yang mengaktifkan Echo")
+        for echos in lsts:
+            if echos.chat_type == "Personal":
+                private_chats += (
+                    f"☞ [{echos.user_name}](https://t.me/{echos.user_username})\n"
+                    if echos.user_username
+                    else f"☞ [{echos.user_name}](tg://user?id={echos.user_id})\n"
+                )
+
+            elif echos.user_username:
+                group_chats += f"☞ [{echos.user_name}](https://t.me/{echos.user_username}) in chat {echos.chat_name} of chat id `{echos.chat_id}`\n"
+            else:
+                group_chats += f"☞ [{echos.user_name}](tg://user?id={echos.user_id}) in chat {echos.chat_name} of chat id `{echos.chat_id}`\n"
+
         if private_chats != "":
             output_str += "**Private Chats**\n" + private_chats + "\n\n"
         if group_chats != "":
@@ -145,10 +142,8 @@ async def echo(event):  # sourcery no-metrics
                 private_chats += (
                     f"☞ [{echos.user_name}](tg://user?id={echos.user_id})\n"
                 )
-        output_str = (
-            f"**Pengguna yang mengaktifkan Echo dalam obrolan ini adalah:**\n"
-            + private_chats
-        )
+        output_str = f"**Pengguna yang mengaktifkan Echo dalam obrolan ini adalah:**\n{private_chats}"
+
 
     await edit_or_reply(event, output_str)
 

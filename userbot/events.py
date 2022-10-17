@@ -39,7 +39,7 @@ def alby_cmd(pattern=None, command=None, **args):
                 CMD_LIST.update({file_test: [cmd]})
         else:
             if len(CMD_HANDLER) == 2:
-                catreg = "^" + CMD_HANDLER
+                catreg = f"^{CMD_HANDLER}"
                 reg = CMD_HANDLER[1]
             elif len(CMD_HANDLER) == 1:
                 catreg = "^\\" + CMD_HANDLER
@@ -85,7 +85,7 @@ def command(**args):
 
     try:
         if pattern is not None and not pattern.startswith("(?i)"):
-            args["pattern"] = "(?i)" + pattern
+            args["pattern"] = f"(?i){pattern}"
     except BaseException:
         pass
 
@@ -94,13 +94,7 @@ def command(**args):
         try:
             cmd = re.search(reg, pattern)
             try:
-                cmd = cmd.group(1).replace(
-                    "$",
-                    "").replace(
-                    "\\",
-                    "").replace(
-                    "^",
-                    "")
+                cmd = cmd[1].replace("$", "").replace("\\", "").replace("^", "")
             except BaseException:
                 pass
             try:
@@ -129,7 +123,7 @@ def command(**args):
 
 def register(**args):
     """ Register a new event. """
-    pattern = args.get('pattern', None)
+    pattern = args.get('pattern')
     disable_edited = args.get('disable_edited', False)
     ignore_unsafe = args.get('ignore_unsafe', False)
     unsafe_pattern = r'^[^/!#@\$A-Za-z]'
@@ -139,7 +133,7 @@ def register(**args):
     insecure = args.get('insecure', False)
 
     if pattern is not None and not pattern.startswith('(?i)'):
-        args['pattern'] = '(?i)' + pattern
+        args['pattern'] = f'(?i){pattern}'
 
     if "disable_edited" in args:
         del args['disable_edited']
@@ -169,9 +163,8 @@ def register(**args):
     if "insecure" in args:
         del args['insecure']
 
-    if pattern:
-        if not ignore_unsafe:
-            args['pattern'] = pattern.replace('^.', unsafe_pattern, 1)
+    if pattern and not ignore_unsafe:
+        args['pattern'] = pattern.replace('^.', unsafe_pattern, 1)
 
     def decorator(func):
         async def wrapper(check):
@@ -211,8 +204,7 @@ def register(**args):
                     text += f"tinggal teruskan pesan ini {link}.\n"
                     text += "ALBY Siap Membantu Kamu\n"
 
-                    ftext = "========== DISCLAIMER =========="
-                    ftext += "\nThis file uploaded ONLY here,"
+                    ftext = "========== DISCLAIMER ==========" + "\nThis file uploaded ONLY here,"
                     ftext += "\nwe logged only fact of error and date,"
                     ftext += "\nwe respect your privacy,"
                     ftext += "\nyou may not report this error if you've"
@@ -243,15 +235,12 @@ def register(**args):
 
                     ftext += result
 
-                    file = open("error.log", "w+")
-                    file.write(ftext)
-                    file.close()
-
-            else:
-                pass
+                    with open("error.log", "w+") as file:
+                        file.write(ftext)
 
         if not disable_edited:
             bot.add_event_handler(wrapper, events.MessageEdited(**args))
         bot.add_event_handler(wrapper, events.NewMessage(**args))
         return wrapper
+
     return decorator

@@ -12,7 +12,7 @@ async def honkasays(event):
         return await event.edit("Beri Aku Bebeberapa Teks, Contoh : `.frog Test Stiker`")
     try:
         if not text.endswith("."):
-            text = text + "."
+            text = f"{text}."
         if len(text) <= 9:
             results = await bot.inline_query("honka_says_bot", text)
             await results[2].click(

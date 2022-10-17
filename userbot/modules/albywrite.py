@@ -46,10 +46,9 @@ async def _(event):
             return
         await asyncio.sleep(0.5)
         await event.client.send_file(
-            event.chat_id,
-            nulis,
-            caption=f"TULISAN by ✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨",
+            event.chat_id, nulis, caption="TULISAN by ✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨"
         )
+
         await event.client.delete_messages(conv.chat_id, [msg_font.id, r.id, msg.id, r2.id, msg2.id, response.id, nulis.id])
         await event.delete()
 
@@ -82,10 +81,9 @@ async def _(event):
             return
         await asyncio.sleep(0.5)
         await event.client.send_file(
-            event.chat_id,
-            nulis,
-            caption=f"TULISAN by ✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨",
+            event.chat_id, nulis, caption="TULISAN by ✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨"
         )
+
         await event.client.delete_messages(conv.chat_id, [msg_font.id, r.id, msg.id, r2.id, msg2.id, response.id, nulis.id])
         await event.delete()
 
@@ -118,10 +116,9 @@ async def _(event):
             return
         await asyncio.sleep(0.5)
         await event.client.send_file(
-            event.chat_id,
-            nulis,
-            caption=f"TULISAN by ✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨",
+            event.chat_id, nulis, caption="TULISAN by ✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨"
         )
+
         await event.client.delete_messages(conv.chat_id, [msg_font.id, r.id, msg.id, r2.id, msg2.id, response.id, nulis.id])
         await event.delete()
 
@@ -156,8 +153,9 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             nulis,
-            caption=f"TULISAN by [✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨](https://t.me/ruangprojects/82)",
+            caption="TULISAN by [✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨](https://t.me/ruangprojects/82)",
         )
+
         await event.client.delete_messages(conv.chat_id, [msg_font.id, r.id, msg.id, r2.id, msg2.id, response.id, nulis.id])
         await event.delete()
 
@@ -192,8 +190,9 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             nulis,
-            caption=f"TULISAN by [✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨](https://t.me/ruangprojects/82)",
+            caption="TULISAN by [✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨](https://t.me/ruangprojects/82)",
         )
+
         await event.client.delete_messages(conv.chat_id, [msg_font.id, r.id, msg.id, r2.id, msg2.id, response.id, nulis.id])
         await event.delete()
 
@@ -228,8 +227,9 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             nulis,
-            caption=f"TULISAN by [✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨](https://t.me/ruangprojects/82)",
+            caption="TULISAN by [✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨](https://t.me/ruangprojects/82)",
         )
+
         await event.client.delete_messages(conv.chat_id, [msg_font.id, r.id, msg.id, r2.id, msg2.id, response.id, nulis.id])
         await event.delete()
 
@@ -264,8 +264,9 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             nulis,
-            caption=f"TULISAN by [✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨](https://t.me/ruangprojects/82)",
+            caption="TULISAN by [✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨](https://t.me/ruangprojects/82)",
         )
+
         await event.client.delete_messages(conv.chat_id, [msg_font.id, r.id, msg.id, r2.id, msg2.id, response.id, nulis.id])
         await event.delete()
 
@@ -300,8 +301,9 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             nulis,
-            caption=f"TULISAN by [✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨](https://t.me/ruangprojects/82)",
+            caption="TULISAN by [✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨](https://t.me/ruangprojects/82)",
         )
+
         await event.client.delete_messages(conv.chat_id, [msg_font.id, r.id, msg.id, r2.id, msg2.id, response.id, nulis.id])
         await event.delete()
 
@@ -336,8 +338,9 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             nulis,
-            caption=f"TULISAN by [✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨](https://t.me/ruangprojects/82)",
+            caption="TULISAN by [✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨](https://t.me/ruangprojects/82)",
         )
+
         await event.client.delete_messages(conv.chat_id, [msg_font.id, r.id, msg.id, r2.id, msg2.id, response.id, nulis.id])
         await event.delete()
 
@@ -372,8 +375,9 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             nulis,
-            caption=f"TULISAN by [✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨](https://t.me/ruangprojects/82)",
+            caption="TULISAN by [✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨](https://t.me/ruangprojects/82)",
         )
+
         await event.client.delete_messages(conv.chat_id, [msg_font.id, r.id, msg.id, r2.id, msg2.id, response.id, nulis.id])
         await event.delete()
 
@@ -408,8 +412,9 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             nulis,
-            caption=f"TULISAN by [✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨](https://t.me/ruangprojects/82)",
+            caption="TULISAN by [✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨](https://t.me/ruangprojects/82)",
         )
+
         await event.client.delete_messages(conv.chat_id, [msg_font.id, r.id, msg.id, r2.id, msg2.id, response.id, nulis.id])
         await event.delete()
 
@@ -444,8 +449,9 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             nulis,
-            caption=f"TULISAN by [✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨](https://t.me/ruangprojects/82)",
+            caption="TULISAN by [✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨](https://t.me/ruangprojects/82)",
         )
+
         await event.client.delete_messages(conv.chat_id, [msg_font.id, r.id, msg.id, r2.id, msg2.id, response.id, nulis.id])
         await event.delete()
 

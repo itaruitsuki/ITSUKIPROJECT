@@ -103,7 +103,7 @@ async def aurl_download(event):
         download = aria2.add_uris(uri, options=None, position=None)
     except Exception as e:
         LOGS.info(str(e))
-        return await event.edit("Error :\n`{}`".format(str(e)))
+        return await event.edit(f"Error :\n`{str(e)}`")
     gid = download.gid
     await check_progress_for_dl(gid=gid, event=event, previous=None)
     file = aria2.get_download(gid)
@@ -192,7 +192,7 @@ async def show_all(event):
 async def check_metadata(gid):
     file = aria2.get_download(gid)
     new_gid = file.followed_by_ids[0]
-    LOGS.info("Changing GID " + gid + " to" + new_gid)
+    LOGS.info(f"Changing GID {gid} to{new_gid}")
     return new_gid
 
 
@@ -206,19 +206,13 @@ async def check_progress_for_dl(gid, event, previous):
                 percentage = int(file.progress)
                 downloaded = percentage * int(file.total_length) / 100
                 prog_str = "[{0}{1}] `{2}`".format(
+                    "".join("█" for _ in range(math.floor(percentage / 10))),
                     "".join(
-                        "█" for i in range(
-                            math.floor(
-                                percentage /
-                                10))),
-                    "".join(
-                        "░" for i in range(
-                            10 -
-                            math.floor(
-                                percentage /
-                                10))),
+                        "░" for _ in range(10 - math.floor(percentage / 10))
+                    ),
                     file.progress_string(),
                 )
+
                 msg = (
                     f"{file.name} - Downloading\n"
                     f"{prog_str}\n"
@@ -243,15 +237,13 @@ async def check_progress_for_dl(gid, event, previous):
                 )
         except Exception as e:
             if " not found" in str(e) or "'file'" in str(e):
-                await event.edit("Download Canceled :\n`{}`".format(file.name))
+                await event.edit(f"Download Canceled :\n`{file.name}`")
                 await sleep(2.5)
                 return await event.delete()
             elif " depth exceeded" in str(e):
                 file.remove(force=True)
                 await event.edit(
-                    "Download Auto Canceled :\n`{}`\nYour Torrent/Link is Dead.".format(
-                        file.name
-                    )
+                    f"Download Auto Canceled :\n`{file.name}`\nYour Torrent/Link is Dead."
                 )
 
 

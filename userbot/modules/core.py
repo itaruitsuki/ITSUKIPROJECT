@@ -18,15 +18,15 @@ def load_module(shortname):
         pass
     elif shortname.endswith("_"):
         path = Path(f"userbot/modules/{shortname}.py")
-        name = "userbot.modules.{}".format(shortname)
+        name = f"userbot.modules.{shortname}"
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
-        LOGS.info("Successfully imported " + shortname)
+        LOGS.info(f"Successfully imported {shortname}")
     else:
 
         path = Path(f"userbot/modules/{shortname}.py")
-        name = "userbot.modules.{}".format(shortname)
+        name = f"userbot.modules.{shortname}"
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         mod.bot = bot
@@ -35,8 +35,8 @@ def load_module(shortname):
         mod.logger = logging.getLogger(shortname)
         spec.loader.exec_module(mod)
         # for imports
-        sys.modules["userbot.modules." + shortname] = mod
-        LOGS.info("Successfully imported " + shortname)
+        sys.modules[f"userbot.modules.{shortname}"] = mod
+        LOGS.info(f"Successfully imported {shortname}")
 
 
 @register(outgoing=True, pattern=r"^\.install$")
@@ -57,10 +57,9 @@ async def _(event):
                 shortname = path1.stem
                 load_module(shortname.replace(".py", ""))
                 await event.edit(
-                    "**Plugin** `{}` **Berhasil di install**".format(
-                        os.path.basename(downloaded_file_name)
-                    )
+                    f"**Plugin** `{os.path.basename(downloaded_file_name)}` **Berhasil di install**"
                 )
+
             else:
                 os.remove(downloaded_file_name)
                 await event.edit("**Error!** Plugin ini sudah terinstall di userbot.")
