@@ -54,9 +54,7 @@ async def separate_sed(sed_string):
         else:
             return replace, sed_string[start:], ""
 
-        flags = ""
-        if counter < len(sed_string):
-            flags = sed_string[counter:]
+        flags = sed_string[counter:] if counter < len(sed_string) else ""
         return replace, replace_with, flags.lower()
     return None
 
@@ -81,7 +79,7 @@ async def sed(command):
 
         try:
             check = re.match(repl, to_fix, flags=re.IGNORECASE)
-            if check and check.group(0).lower() == to_fix.lower():
+            if check and check[0].lower() == to_fix.lower():
                 return await command.edit("`Boi!, that's a reply. Don't use sed`")
 
             if "i" in flags and "g" in flags:

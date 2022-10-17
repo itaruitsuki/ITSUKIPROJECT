@@ -29,8 +29,9 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             file=random.choice(videonya),
-            caption=f" Nih Kak Video Murotal nya 😎",
+            caption=" Nih Kak Video Murotal nya 😎",
         )
+
         await event.delete()
     except Exception:
         await event.edit("Murotal Video nya Tidak ditemukan Karena Kamu belum wudhu _-.")
@@ -49,8 +50,9 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             file=random.choice(imagenya),
-            caption=f" Nih Kak Gambar Murotal nya 😎",
+            caption=" Nih Kak Gambar Murotal nya 😎",
         )
+
         await event.delete()
     except Exception:
         await event.edit("Gambar Murotal nya Tidak ditemukan Karena Kamu belum wudhu _-.")

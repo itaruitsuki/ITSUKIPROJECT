@@ -5,6 +5,7 @@
 #
 """ Userbot module for getting the weather of a city. """
 
+
 import json
 from requests import get
 from datetime import datetime
@@ -17,10 +18,7 @@ from userbot import OPEN_WEATHER_MAP_APPID as OWM_API
 from userbot.events import register
 
 # ===== CONSTANT =====
-if WEATHER_DEFCITY:
-    DEFCITY = WEATHER_DEFCITY
-else:
-    DEFCITY = None
+DEFCITY = WEATHER_DEFCITY or None
 # ====================
 
 
@@ -66,7 +64,7 @@ async def get_weather(weather):
     if "," in CITY:
         newcity = CITY.split(",")
         if len(newcity[1]) == 2:
-            CITY = newcity[0].strip() + "," + newcity[1].strip()
+            CITY = f"{newcity[0].strip()},{newcity[1].strip()}"
         else:
             country = await get_tz((newcity[1].strip()).title())
             try:
@@ -74,7 +72,7 @@ async def get_weather(weather):
             except KeyError:
                 await weather.edit("`Invalid country.`")
                 return
-            CITY = newcity[0].strip() + "," + countrycode.strip()
+            CITY = f"{newcity[0].strip()},{countrycode.strip()}"
 
     url = f'https://api.openweathermap.org/data/2.5/weather?q={CITY}&appid={APPID}'
     request = get(url)

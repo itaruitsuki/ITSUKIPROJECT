@@ -41,9 +41,11 @@ from userbot.utils.thumbnail import gen_thumb
 
 def vcmention(user):
     full_name = get_display_name(user)
-    if not isinstance(user, types.User):
-        return full_name
-    return f"[{full_name}](tg://user?id={user.id})"
+    return (
+        f"[{full_name}](tg://user?id={user.id})"
+        if isinstance(user, types.User)
+        else full_name
+    )
 
 
 def ytsearch(query: str):
@@ -62,9 +64,7 @@ def ytsearch(query: str):
 
 async def ytdl(format: str, link: str):
     stdout, stderr = await bash(f'yt-dlp -g -f "{format}" {link}')
-    if stdout:
-        return 1, stdout.split("\n")[0]
-    return 0, stderr
+    return (1, stdout.split("\n")[0]) if stdout else (0, stderr)
 
 
 async def skip_item(chat_id: int, x: int):
@@ -389,9 +389,9 @@ async def vc_skip(event):
                 link_preview=False,
             )
     else:
-        skip = event.text.split(maxsplit=1)[1]
         DELQUE = "**Menghapus Lagu Berikut Dari Antrian:**"
         if chat_id in QUEUE:
+            skip = event.text.split(maxsplit=1)[1]
             items = [int(x) for x in skip.split(" ") if x.isdigit()]
             items.sort(reverse=True)
             for x in items:
@@ -437,7 +437,7 @@ async def vc_volume(event):
     chat_id = event.chat_id
 
     if not admin and not creator:
-        return await edit_delete(event, f"**Maaf Anda Bukan Admin 👮**", 30)
+        return await edit_delete(event, "**Maaf Anda Bukan Admin 👮**", 30)
 
     if chat_id in QUEUE:
         try:
@@ -484,7 +484,7 @@ async def vc_playlist(event):
 @register(incoming=True, from_users=VVIP,
           pattern=r"^\.joinvcs(?: |$)(.*)")
 async def join_(event):
-    xnxx = await edit_or_reply(event, f"**Processing**")
+    xnxx = await edit_or_reply(event, "**Processing**")
     if len(event.text.split()) > 1:
         chat = event.text.split()[1]
         try:
@@ -516,15 +516,14 @@ async def leavevc(event):
     """ leave video chat """
     xnxx = await edit_or_reply(event, "Processing")
     chat_id = event.chat_id
-    from_user = vcmention(event.sender)
-    if from_user:
+    if from_user := vcmention(event.sender):
         try:
             await call_py.leave_group_call(chat_id)
         except (NotInGroupCallError, NoActiveGroupCall):
             pass
-        await xnxx.edit("**Left the voice chat** `{}`".format(str(event.chat_id)))
+        await xnxx.edit(f"**Left the voice chat** `{str(event.chat_id)}`")
     else:
-        await edit_delete(event, f"**Tidak Sedang Memutar Streaming**")
+        await edit_delete(event, "**Tidak Sedang Memutar Streaming**")
 
 
 @call_py.on_stream_end()

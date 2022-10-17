@@ -22,7 +22,6 @@ PROFILE_IMAGE = os.environ.get(
 
 
 @register(outgoing=True, pattern="^.offline(?: |$)(.*)")
-# pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
         return
@@ -37,8 +36,7 @@ async def _(event):
     urllib.request.urlretrieve(
         "https://telegra.ph/file/9f463e178dd4f98f92b2a.jpg", "donottouch.jpg"
     )
-    photo = "donottouch.jpg"
-    if photo:
+    if photo := "donottouch.jpg":
         file = await event.client.upload_file(photo)
         try:
             await bot(functions.photos.UploadProfilePhotoRequest(file))
@@ -58,7 +56,7 @@ async def _(event):
                 last_name=last_name, first_name=first_name
             )
         )
-        result = "**`{} {}`\nI am Offline now.**".format(first_name, last_name)
+        result = f"**`{first_name} {last_name}`\nI am Offline now.**"
         await event.edit(result)
     except Exception as e:  # pylint:disable=C0103,W0703
         await event.edit(str(e))
@@ -78,8 +76,7 @@ async def _(event):
     if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):  # pylint:disable=E0602
         os.makedirs(TEMP_DOWNLOAD_DIRECTORY)  # pylint:disable=E0602
     urllib.request.urlretrieve(PROFILE_IMAGE, "donottouch.jpg")
-    photo = "donottouch.jpg"
-    if photo:
+    if photo := "donottouch.jpg":
         file = await event.client.upload_file(photo)
         try:
             await bot(functions.photos.UploadProfilePhotoRequest(file))
@@ -99,7 +96,7 @@ async def _(event):
                 last_name=last_name, first_name=first_name
             )
         )
-        result = "**`{} {}`\nI am Online !**".format(first_name, last_name)
+        result = f"**`{first_name} {last_name}`\nI am Online !**"
         await event.edit(result)
     except Exception as e:  # pylint:disable=C0103,W0703
         await event.edit(str(e))
